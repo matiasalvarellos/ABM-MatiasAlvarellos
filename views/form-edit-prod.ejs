@@ -6,7 +6,7 @@
 
 <body>
     <h1>Edita tu producto!</h1>
-    <form method="POST" action="/producto/edit/<%= producto.id %>">
+    <form method="POST" action="/producto/edit/<%= producto.id %>?_method=PUT">
         <label for="nombre">Nombre:</label><br>
         <input type="text" name="nombre" id="nombre" value="<%= producto.nombre %>"><br>
         <label for="precio">Precio:</label><br>
