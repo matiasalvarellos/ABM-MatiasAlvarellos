@@ -1,0 +1,25 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <h1>Edita tu producto!</h1>
+    <form method="POST" action="/producto/edit/<%= producto.id %>">
+        <label for="nombre">Nombre:</label><br>
+        <input type="text" name="nombre" id="nombre" value="<%= producto.nombre %>"><br>
+        <label for="precio">Precio:</label><br>
+        <input type="text" name="precio" id="precio" value="<%= producto.precio %>"><br>
+        <label for="marca">Marca:</label><br>
+        <input type="text" name="marca" id="marca" value="<%= producto.marca %>"><br>
+        <label for="Stock">Stock:</label><br>
+        <input type="text" name="stock" id="Stock" value="<%= producto.stock %>"><br>
+        <label for="descripcion">Descripcion:</label><br>
+        <textarea name="descripcion" id="descripcion" ><%= producto.descripcion %></textarea><br>
+        <br>
+        <button type="submit">Guardar datos!</button>
+    </form>
+</body>
+
+</html>
