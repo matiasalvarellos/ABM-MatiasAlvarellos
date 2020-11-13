@@ -58,14 +58,15 @@ const controller={
         return res.redirect("/producto/edit/"+req.params.id);
     },
     destroy:(req, res, next) => {
-        let productos = getProductos()
-        let productosEditados = productos.filter(producto => producto.id != req.params.id)
-        writeJson(productosEditados)
-        if(productosEditados){
-            res.send("producto eliminado")
+        let productos = getProductos();
+        let productoEliminado = productos.find(producto => producto.id == req.params.id);
+        if(productoEliminado){
+            let productosEditados = productos.filter(producto => producto.id != req.params.id);
+            writeJson(productosEditados)
+            return res.send( "producto eliminado: "+ productoEliminado.nombre );
         }else{
-            res.send("producto no encontrado con el id " + req.params.id)
-        }
+            return res.send( "producto no encontrado con el id " + req.params.id );
+        }       
     }
 }
 module.exports=controller;
