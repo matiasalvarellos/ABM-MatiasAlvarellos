@@ -13,7 +13,8 @@ function writeJson(array){
 
 const controller={
     inicio:(req, res, next) => {
-        res.render("producto")
+        const productos = getProductos();
+        return res.render("productos", {productos})
     },
     formulario:(req, res, next) => {
        return res.render("form-create-prod")
@@ -26,7 +27,7 @@ const controller={
             precio: req.body.precio,
             marca: req.body.marca,
             stock: req.body.stock,
-            descripcion: req.body.descripcion,
+            descripcion: req.body.descripcion
         }
         let productosNuevos=[...productos, nuevoProducto];
         writeJson(productosNuevos)
@@ -46,7 +47,7 @@ const controller={
         let productos = getProductos();
         let productosEditados = productos.map(producto => {
             if(producto.id == req.params.id){
-                producto.name = req.body.name;
+                producto.nombre = req.body.nombre;
                 producto.precio = req.body.precio;
                 producto.descripcion = req.body.descripcion;
                 producto.marca = req.body.marca;
@@ -55,7 +56,7 @@ const controller={
             return producto;
         })
         writeJson(productosEditados);
-        return res.redirect("/producto/edit/"+req.params.id);
+        return res.redirect("/productos/edit/"+req.params.id);
     },
     destroy:(req, res, next) => {
         let productos = getProductos();

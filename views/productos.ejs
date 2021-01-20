@@ -1,0 +1,19 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <a href="/productos/crear">Crea un producto Aqui!</a>
+        <h2>Lista de Productos</h2>
+        <hr>
+        <ul>
+            <% productos.forEach(function(producto){ %>
+                <li>
+                    <%= producto.nombre %> 
+                    <a href="/productos/edit/<%= producto.id %>">editar</a> y 
+                    <a href="/productos/delete/<%= producto.id %> ">Borrar</a>
+                </li>
+            <% }) %> 
+        </ul>
+    </body>
+</html>
