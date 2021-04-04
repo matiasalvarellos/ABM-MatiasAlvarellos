@@ -69,5 +69,6 @@ const controller={
             return res.send( "producto no encontrado con el id " + req.params.id );
         }       
     }
+    
 }
 module.exports=controller;
